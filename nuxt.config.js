@@ -6,15 +6,42 @@ export default {
 
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
-    titleTemplate: '%s - artifacts-nuxt-structure',
-    title: 'artifacts-nuxt-structure',
+    title: 'HCMS2019',
     meta: [
       { charset: 'utf-8' },
+      { name: 'theme-color', content: '#FFFFFF' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { hid: 'description', name: 'description', content: '' }
+      { name: 'robots', content: 'index, follow, noodp' },
+      { name: 'googlebot', content: 'index, follow' },
+      { name: 'format-detection', content: 'telephone=no' },
+      { hid: 'description', name: 'description', content: 'Health Claims Management Service' },
+      { name: 'keywords', content: 'HCMS, Health, Claims, Management, Service' },
+      // Twitter sharing
+      // https://developer.twitter.com/en/docs/twitter-for-websites/cards/overview/summary
+      { name: 'twitter:card', content: 'summary' },
+      // Facebook sharing
+      // https://developers.facebook.com/docs/sharing/webmasters/
+      { property: 'og:site_name', content: 'HCMS2019' },
+      { property: 'og:image', content: 'https://www.hcms2019.com/images/home_background_1.jpg' },
+      { property: 'og:title', content: 'HCMS2019' },
+      { property: 'og:url', content: 'https://www.hcms2019.com/' },
+      { property: 'og:description', content: 'Health Claims Management Service' },
+      { property: 'og:type', content: 'website' },
     ],
     link: [
-      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
+      // Manifest for appplaction name and icon at Home screen
+      // https://web.dev/add-manifest/
+      { rel: 'manifest', href: '/manifest.json' },
+      { rel: 'shortcut icon', href: '/favicons/favicon.ico' },
+      { rel: 'icon', sizes: '32x32', type: 'image/ico', href: '/favicons/favicon.ico' },
+      { rel: 'icon', sizes: '48x48', type: 'image/png', href: '/favicons/favicon@xs.png' },
+      { rel: 'icon', sizes: '96x96', type: 'image/png', href: '/favicons/favicon@sm.png' },
+      { rel: 'icon', sizes: '144x144', type: 'image/png', href: '/favicons/favicon@md.png' },
+      { rel: 'icon', sizes: '192x192', type: 'image/png', href: '/favicons/favicon@lg.png' },
+      { rel: 'apple-touch-icon', href: '/favicons/touch-icon-iphone.png' },
+      { rel: 'apple-touch-icon', sizes: '76x76', href: '/favicons/touch-icon-ipad.png' },
+      { rel: 'apple-touch-icon', sizes: '120x120', href: '/favicons/touch-icon-iphone-retina.png' },
+      { rel: 'apple-touch-icon', sizes: '152x152', href: '/favicons/touch-icon-ipad-retina.png' },
     ]
   },
 

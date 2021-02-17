@@ -1,29 +1,16 @@
 <template>
-  <v-row justify="center" align="center">
-    <v-col cols="12" sm="8" md="6">
-      <v-btn
-        color="primary"
-        nuxt
-        to="/inspire"
-      >
-        Continue
-      </v-btn>
-    </v-col>
-  </v-row>
+  <div>
+    Let 's start workshop!!!
+    <ComponentSample :isShowTitle="false" />
+  </div>
 </template>
 
 <script>
-import Logo from '~/components/Logo.vue'
-import VuetifyLogo from '~/components/VuetifyLogo.vue'
+import Components from "~/components/index.ts";
 
 export default {
   components: {
-    Logo,
-    VuetifyLogo
+    ...Components,
   },
-  async asyncData({ $services }) {
-    const userResult = await $services.user.searchUsers();
-    console.log('user result from APIs', userResult.users, $services.user.getUsersResultDTO());
-  }
 }
 </script>
