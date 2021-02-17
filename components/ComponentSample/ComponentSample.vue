@@ -35,12 +35,6 @@
       className: {
         type: String,
       },
-      isActive: {
-        type: Boolean,
-      },
-      isFocus: {
-        type: Boolean,
-      },
       inlineStyles: {
         type: Object,
         default: function() {
@@ -49,41 +43,64 @@
           };
         },
       },
+      isActive: {
+        type: Boolean,
+      },
+      isFocus: {
+        type: Boolean,
+      },
       isShowTitle: {
         type: Boolean,
         default: true,
-      },
-      title: {
-        type: String,
-        default: 'Title',
       },
       isShowDescription: {
         type: Boolean,
         default: true,
       },
+      title: {
+        type: String,
+        default: '-',
+      },
       description: {
         type: String,
-        default: 'Description',
+        default: '-',
       },
     },
 
-    mounted() {
-      // Something
-    },
+    mounted() {},
 
     data() {
-      return {
-        // Something
-      };
+      return {};
     },
 
     methods: {
-      function_name () {
-        // Function
-      },
+      function_name () {},
     },
   };
 </script>
 
 <style lang="scss">
+  .component-sample {
+    /* Parent style   ------------------------------ */
+    padding: 10px;
+
+    /* Children style ------------------------------ */
+    .component-sample-title {
+      font-size: 16px;
+      font-weight: bold;
+    }
+
+    .component-sample-description {
+      font-size: 16px;
+    }
+
+    /* Modifier style ------------------------------ */
+    &.is-active {
+      background-color: #CCCCCC;
+    }
+
+    &.is-focus {
+      border: 2px solid #000000;
+    }
+  }
 </style>

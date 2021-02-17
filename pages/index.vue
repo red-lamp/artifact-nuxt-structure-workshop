@@ -1,7 +1,14 @@
 <template>
   <div>
     Let 's start workshop!!!
-    <ComponentSample :isShowTitle="false" />
+    <ComponentSample
+      :isActive="true"
+      :isFocus="false"
+      :isShowTitle="true"
+      :isShowDescription="true"
+      :title="'Component Sample'"
+      :description="'This is sample for learning component usage workshop.'"
+    />
   </div>
 </template>
 
@@ -14,3 +21,6 @@ export default {
   },
 }
 </script>
+
+<style lang="scss">
+</style>
