@@ -19,6 +19,7 @@ $ npm run generate
 
 For detailed explanation on how things work, check out [Nuxt.js docs](https://nuxtjs.org).
 
+---
 
 ## Component usage workshop
 
@@ -46,3 +47,6 @@ For detailed explanation on how things work, check out [Nuxt.js docs](https://nu
     - Method at https://www.designil.com/how-to-embed-web-font.html
 5. Set style guides
 6. Set global style
+
+### Device and Browser conditions
+- [mobile-device-detect](https://github.com/duskload/mobile-device-detect)

@@ -55,7 +55,7 @@ export default {
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [
-    '~/plugins/services.ts'
+    '~/plugins/services.ts',
   ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
@@ -80,8 +80,11 @@ export default {
 
   // PWA module configuration: https://go.nuxtjs.dev/pwa
   pwa: {
+    icon: {
+      source: '@/static/favicons/favicon@lg.png',
+    },
     manifest: {
-      lang: 'en'
+      lang: 'en',
     }
   },
 
@@ -90,6 +93,6 @@ export default {
   },
 
   axios: {
-    baseURL:'http://localhost:5000'
+    baseURL:'http://localhost:5000',
   }
 }

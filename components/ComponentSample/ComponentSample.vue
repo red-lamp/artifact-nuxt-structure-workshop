@@ -93,6 +93,7 @@
       font-size: 16px;
     }
 
+    /* Other component style ----------------------- */
     /* Modifier style ------------------------------ */
     &.is-active {
       background-color: #CCCCCC;
