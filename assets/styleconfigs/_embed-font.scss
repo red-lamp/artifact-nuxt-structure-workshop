@@ -1,0 +1,38 @@
+// //////////////////////////////////////////////////////////////////////////////////////////////////
+// ==================================================================================================
+//
+// Embed font
+// - Sarabun
+//
+// ==================================================================================================
+// //////////////////////////////////////////////////////////////////////////////////////////////////
+
+// Variables
+// ============================================================
+$path-file-font-family-primary: '~static/fonts/sarabun/sarabun-regular';
+$path-file-font-family-primary-bold: '~static/fonts/sarabun/sarabun-bold';
+
+// Sarabun
+// ============================================================
+
+// Regular
+@font-face {
+  font-family: 'Sarabun';
+  src: url('#{$path-file-font-family-primary}.eot');
+  src: url('#{$path-file-font-family-primary}.eot') format('embedded-opentype'),
+  url('#{$path-file-font-family-primary}.woff') format('woff'),
+  url('#{$path-file-font-family-primary}.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+// Bold
+@font-face {
+  font-family: 'Sarabun Bold';
+  src: url('#{$path-file-font-family-primary-bold}.eot');
+  src: url('#{$path-file-font-family-primary-bold}.eot') format('embedded-opentype'),
+  url('#{$path-file-font-family-primary-bold}.woff') format('woff'),
+  url('#{$path-file-font-family-primary-bold}.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}

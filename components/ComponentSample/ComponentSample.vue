@@ -10,7 +10,6 @@
       inlineStyles,
     ]"
   >
-    <div>Component sample</div>
     <div
       v-if="isShowTitle"
       class="component-sample-title"
