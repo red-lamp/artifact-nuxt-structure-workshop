@@ -48,5 +48,23 @@ For detailed explanation on how things work, check out [Nuxt.js docs](https://nu
 5. Set style guides
 6. Set global style
 
+### Layout
+
+### Page
+
+### Component
+1. Container
+2. Grid
+    - Display eg. inline, inline-block, block, flex
+    - Box sizing eg. content-box, border-box
+    - Learning flex at https://css-tricks.com/snippets/css/a-guide-to-flexbox/ and https://flexboxfroggy.com/
+3. Button
+4. Input
+5. Navigation bar
+6. Hero banner
+7. Our service
+8. Contact
+9. Footer
+
 ### Device and Browser conditions
 - [mobile-device-detect](https://github.com/duskload/mobile-device-detect)
