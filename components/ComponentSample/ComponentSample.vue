@@ -79,6 +79,8 @@
 </script>
 
 <style lang="scss">
+  @import "~assets/styleguides/styleguides";
+
   .component-sample {
     /* Parent style   ------------------------------ */
     padding: 10px;

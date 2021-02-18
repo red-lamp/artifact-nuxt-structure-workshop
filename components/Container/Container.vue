@@ -1,7 +1,7 @@
 <template>
   <div
     :class="[
-      'component-starter', {
+      'container-custom', {
       }, className,
     ]"
     :style="[
@@ -14,7 +14,7 @@
 
 <script>
   export default {
-    name: 'ComponentStarter',
+    name: 'Container',
 
     // Props types: String, Number, Boolean, Array, Object, Function, Promise
     props: {
@@ -42,8 +42,11 @@
 <style lang="scss">
   @import "~assets/styleguides/styleguides";
 
-  .component-starter {
+  .container-custom {
     /* Parent style   ------------------------------ */
+    max-width: $site-width;
+    margin: 0 auto;
+
     /* Children style ------------------------------ */
     /* Other component style ----------------------- */
     /* Modifier style ------------------------------ */

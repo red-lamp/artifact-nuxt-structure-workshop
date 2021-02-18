@@ -1,7 +1,7 @@
 <template>
-  <div class="home">
+  <div class="playground">
     <Container>
-      Let 's start workshop!!!
+      Playground
 
       <br />
 
@@ -86,7 +86,7 @@ export default {
 <style lang="scss">
   @import "~assets/styleguides/styleguides";
 
-  .home {
+  .playground {
     /* Parent style   ------------------------------ */
     padding: 30px 0;
 
