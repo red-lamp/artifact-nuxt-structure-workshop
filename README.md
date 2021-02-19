@@ -53,6 +53,7 @@ For detailed explanation on how things work, check out [Nuxt.js docs](https://nu
 ### Page
 
 ### Component
+- [CSS Selector](https://www.w3schools.com/cssref/css_selectors.asp)
 1. Container
 2. Grid
     - Display eg. inline, inline-block, block, flex

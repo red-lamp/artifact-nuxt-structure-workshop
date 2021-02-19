@@ -106,6 +106,16 @@
 </Grid>
 ```
 
+## HeroBanner
+
+``` bash
+<HeroBanner
+  :src="'/images/contents/banner-hero.jpg'"
+  :heading="'Heading"
+  :description="'Description'"
+/>
+```
+
 ## Input
 
 ``` bash
@@ -132,4 +142,24 @@
 >
   ...
 </Layout>
+```
+
+## NavigationBar
+
+``` bash
+<NavigationBar
+  className=""
+>
+  ...
+</NavigationBar>
+```
+
+## Panel
+
+``` bash
+<Panel
+  className=""
+>
+  ...
+</Panel>
 ```

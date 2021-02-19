@@ -9,6 +9,7 @@
       'is-large': isLarge,
       'is-disabled': isDisabled,
       'is-fluid': isFluid,
+      'is-no-padding': isNoPadding,
       }, className,
     ]"
     :style="[
@@ -100,6 +101,9 @@
       isFluid: {
         type: Boolean,
       },
+      isNoPadding: {
+        type: Boolean,
+      },
       isShowIconFront: {
         type: Boolean,
         default: false,
@@ -168,6 +172,7 @@
     cursor: pointer;
     transition: $global-transition;
     display: inline-flex;
+    justify-content: center;
     align-items: center;
     height: $button-height;
     padding: 0 15px;
@@ -206,7 +211,8 @@
     .button-custom-text {
       @include typography-primary-18;
       position: relative;
-      top: 2px;
+      top: -1px;
+      line-height: 1;
       color: $color-white;
     }
 
@@ -242,7 +248,6 @@
 
       .button-custom-text {
         @include typography-primary-14;
-        top: 1px;
       }
     }
 
@@ -273,6 +278,10 @@
 
     &.is-fluid {
       width: 100%;
+    }
+
+    &.is-no-padding {
+      padding: 0;
     }
   }
 </style>

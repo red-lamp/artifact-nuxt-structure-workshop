@@ -6,6 +6,8 @@ import HeroBanner from './HeroBanner';
 import Input from './Input';
 import Layout from './Layout';
 import NavigationBar from './NavigationBar';
+import Panel from './Panel';
+import Table from './Table';
 
 export default {
   ComponentSample: ComponentSample.ComponentSample,
@@ -17,4 +19,6 @@ export default {
   Input: Input.Input,
   Layout: Layout.Layout,
   NavigationBar: NavigationBar.NavigationBar,
+  Panel: Panel.Panel,
+  Table: Table.Table,
 }
