@@ -210,6 +210,7 @@
       color: $color-white;
     }
 
+    /* Other component style ----------------------- */
     /* Modifier style ------------------------------ */
     /* Color */
     &.is-color-primary {
