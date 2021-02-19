@@ -42,8 +42,6 @@
                       <span v-if="true" class="table-custom-text is-td">Claims Management</span>
                       <Input v-else
                         isFluid
-                        :label="''"
-                        :message="''"
                         :placeholder="'Enter service name'"
                         :name="''"
                         :value="''"
@@ -54,8 +52,6 @@
                       <span v-if="true" class="table-custom-text is-td">To the fullest extent permissible pursuant to applicable law.</span>
                       <Input v-else
                         isFluid
-                        :label="''"
-                        :message="''"
                         :placeholder="'Enter service name'"
                         :name="''"
                         :value="''"
@@ -126,8 +122,6 @@
                       <span v-if="false" class="table-custom-text is-td">Medical Welfare Benefits for Employees</span>
                       <Input v-else
                         isFluid
-                        :label="''"
-                        :message="''"
                         :placeholder="'Enter service name'"
                         :name="''"
                         :value="'Medical Welfare Benefits for Employees'"
@@ -138,8 +132,6 @@
                       <span v-if="false" class="table-custom-text is-td">Refer to the actual policy or the relevant product or services.</span>
                       <Input v-else
                         isFluid
-                        :label="''"
-                        :message="''"
                         :placeholder="'Enter service name'"
                         :name="''"
                         :value="'Refer to the actual policy or the relevant product or services.'"
@@ -210,8 +202,6 @@
                       <span v-if="true" class="table-custom-text is-td">Information System</span>
                       <Input v-else
                         isFluid
-                        :label="''"
-                        :message="''"
                         :placeholder="'Enter service name'"
                         :name="''"
                         :value="''"
@@ -222,8 +212,6 @@
                       <span v-if="true" class="table-custom-text is-td">Actual policy or the relevant product or services agreement.</span>
                       <Input v-else
                         isFluid
-                        :label="''"
-                        :message="''"
                         :placeholder="'Enter service name'"
                         :name="''"
                         :value="''"
@@ -296,9 +284,88 @@
         </Grid>
       </div>
       <div class="home-section is-contact">
-        ...
+        <div class="home-section is-form-contact">
+          <Grid isGutter30 isCenter>
+            <GridCol isCol6>
+              <div class="home-section is-heading">
+                <span class="home-text is-heading">Contact</span>
+              </div>
+              <div class="home-lists is-form-contact">
+                <div class="home-list">
+                  <Grid isGutter30>
+                    <GridCol isCol6>
+                      <Input
+                        isMandatory
+                        isFluid
+                        :label="'First name'"
+                        :placeholder="'Enter your first name'"
+                        :name="''"
+                        :value="''"
+                        :onChangeInput="function () {}"
+                      />
+                    </GridCol>
+                    <GridCol isCol6>
+                      <Input
+                        isMandatory
+                        isFluid
+                        :label="'Last name'"
+                        :placeholder="'Enter your last name'"
+                        :name="''"
+                        :value="''"
+                        :onChangeInput="function () {}"
+                      />
+                    </GridCol>
+                  </Grid>
+                </div>
+                <div class="home-list">
+                  <Input
+                    isMandatory
+                    isFluid
+                    :label="'Email address'"
+                    :placeholder="'Enter your email address eg john@mail.com'"
+                    :name="''"
+                    :value="''"
+                    :onChangeInput="function () {}"
+                  />
+                </div>
+                <div class="home-list">
+                  <Input
+                    isMandatory
+                    isFluid
+                    :label="'Title'"
+                    :placeholder="'Enter your contact title'"
+                    :name="''"
+                    :value="''"
+                    :onChangeInput="function () {}"
+                  />
+                </div>
+                <div class="home-list">
+                  <Textarea
+                    isFluid
+                    :label="'Description'"
+                    :placeholder="'Enter your contact description'"
+                    :height="108"
+                    :name="''"
+                    :value="''"
+                    :onChangeTextarea="function () {}"
+                  />
+                </div>
+              </div>
+            </GridCol>
+          </Grid>
+        </div>
+        <div class="home-section is-button-send">
+          <Button
+            isColorPrimary
+            :width="125"
+            :onClick="function () {}"
+          >
+            Send
+          </Button>
+        </div>
       </div>
     </Container>
+    <Footer />
   </div>
 
 </template>
@@ -318,6 +385,11 @@ export default {
 
   .home {
     /* Parent style   ------------------------------ */
+    .test {
+      height: 40px;
+      background-color: red;
+    }
+
     /* Children style ------------------------------ */
     .home-section {
       &.is-hero-banner {
@@ -325,13 +397,28 @@ export default {
       }
 
       &.is-our-services {
+        margin: 0 0 35px;
       }
 
       &.is-contact {
+        margin: 0 0 90px;
+      }
+
+      &.is-heading {
+        margin: 0 0 30px;
+        text-align: center;
       }
 
       &.is-heading-our-services {
         margin: 0 0 27px;
+      }
+
+      &.is-form-contact {
+        margin: 0 0 30px;
+      }
+
+      &.is-button-send {
+        text-align: center;
       }
     }
 
@@ -339,6 +426,18 @@ export default {
       &.is-heading {
         @include typography-primary-bold-24;
         color: $color-primary-1;
+      }
+    }
+
+    .home-lists {
+      &.is-form-contact {
+        .home-list {
+            margin: 0 0 25px;
+
+          &:last-child {
+            margin: 0;
+          }
+        }
       }
     }
 

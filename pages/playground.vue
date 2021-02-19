@@ -5,6 +5,8 @@
         <div class="playground-text is-heading">Playground</div>
       </div>
 
+      <!-- Component Sample
+      ================================================== -->
       <div class="playground-section is-heading-component">
         <div class="playground-text is-heading-component">Component Sample</div>
       </div>
@@ -19,6 +21,8 @@
         />
       </div>
 
+      <!-- Button
+      ================================================== -->
       <div class="playground-section is-heading-component">
         <div class="playground-text is-heading-component">Button</div>
       </div>
@@ -252,6 +256,70 @@
         </div>
       </div>
 
+      <!-- Container
+      ================================================== -->
+      <div class="playground-section is-heading-component">
+        <div class="playground-text is-heading-component">Container</div>
+      </div>
+      <div class="playground-section is-component">
+        <Container>
+          Container is contain content and control site width.
+        </Container>
+      </div>
+
+      <!-- Footer
+      ================================================== -->
+      <div class="playground-section is-heading-component">
+        <div class="playground-text is-heading-component">Footer</div>
+      </div>
+      <div class="playground-section is-component">
+        <Footer />
+      </div>
+
+      <!-- Grid
+      ================================================== -->
+      <div class="playground-section is-heading-component">
+        <div class="playground-text is-heading-component">Grid</div>
+      </div>
+      <div class="playground-section is-component">
+        <div class="playground-lists is-components">
+          <div class="playground-list">
+            <div class="playground-section is-heading-variant">
+              <div class="playground-text is-heading-variant">12 Columns & Gutter 30</div>
+            </div>
+            <Grid isGutter30>
+              <GridCol isCol1>Col</GridCol>
+              <GridCol isCol1>Col</GridCol>
+              <GridCol isCol1>Col</GridCol>
+              <GridCol isCol1>Col</GridCol>
+              <GridCol isCol1>Col</GridCol>
+              <GridCol isCol1>Col</GridCol>
+              <GridCol isCol1>Col</GridCol>
+              <GridCol isCol1>Col</GridCol>
+              <GridCol isCol1>Col</GridCol>
+              <GridCol isCol1>Col</GridCol>
+              <GridCol isCol1>Col</GridCol>
+              <GridCol isCol1>Col</GridCol>
+            </Grid>
+          </div>
+        </div>
+      </div>
+
+      <!-- Hero Banner
+      ================================================== -->
+      <div class="playground-section is-heading-component">
+        <div class="playground-text is-heading-component">Hero Banner</div>
+      </div>
+      <div class="playground-section is-component">
+        <HeroBanner
+          :src="'/images/contents/banner-hero.jpg'"
+          :heading="'Health Claims Management Service'"
+          :description="'HCMS2019 Co., Ltd. is a Third Party Administrator of health insurance and medical welfare benefits providing medical claims assessment and also medical benefits administration service.'"
+        />
+      </div>
+
+      <!-- Input
+      ================================================== -->
       <div class="playground-section is-heading-component">
         <div class="playground-text is-heading-component">Input</div>
       </div>
@@ -431,6 +499,120 @@
         </div>
       </div>
 
+      <!-- Navigation Bar
+      ================================================== -->
+      <div class="playground-section is-heading-component">
+        <div class="playground-text is-heading-component">Navigation Bar</div>
+      </div>
+      <div class="playground-section is-component">
+        <NavigationBar />
+      </div>
+
+      <!-- Panel
+      ================================================== -->
+      <div class="playground-section is-heading-component">
+        <div class="playground-text is-heading-component">Panel</div>
+      </div>
+      <div class="playground-section is-component">
+        <Panel>
+          Panel is container for contain varient contents.
+        </Panel>
+      </div>
+
+
+      <!-- Table
+      ================================================== -->
+      <div class="playground-section is-heading-component">
+        <div class="playground-text is-heading-component">Table</div>
+      </div>
+      <div class="playground-section is-component">
+        <Table>
+          <thead>
+            <tr>
+              <th>TH</th>
+              <th>TH</th>
+              <th>TH</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>TD</td>
+              <td>TD</td>
+              <td>TD</td>
+            </tr>
+            <tr>
+              <td>TD</td>
+              <td>TD</td>
+              <td>TD</td>
+            </tr>
+            <tr>
+              <td>TD</td>
+              <td>TD</td>
+              <td>TD</td>
+            </tr>
+          </tbody>
+        </Table>
+      </div>
+
+      <!-- Textarea
+      ================================================== -->
+      <div class="playground-section is-heading-component">
+        <div class="playground-text is-heading-component">Textarea</div>
+      </div>
+      <div class="playground-section is-component">
+        <div class="playground-lists is-components">
+          <div class="playground-list">
+            <Textarea
+              isFluid
+              isMandatory
+              :label="'Label'"
+              :message="'Message'"
+              :placeholder="'Placeholder'"
+              :height="100"
+              :name="''"
+              :value="''"
+              :onChangeTextarea="function () {}"
+            />
+          </div>
+          <div class="playground-list">
+            <Textarea
+              isFluid
+              isMandatory
+              isError
+              :label="'Label'"
+              :message="'Message'"
+              :placeholder="'Placeholder'"
+              :height="100"
+              :name="''"
+              :value="''"
+              :onChangeTextarea="function () {}"
+            />
+          </div>
+          <div class="playground-list">
+            <Textarea
+              isFluid
+              isMandatory
+              isDisabled
+              :label="'Label'"
+              :message="'Message'"
+              :placeholder="'Placeholder'"
+              :height="100"
+              :name="''"
+              :value="''"
+              :onChangeTextarea="function () {}"
+            />
+          </div>
+        </div>
+      </div>
+
+      <!-- XXXXX
+      ================================================== -->
+      <div class="playground-section is-heading-component">
+        <div class="playground-text is-heading-component">XXXXX</div>
+      </div>
+      <div class="playground-section is-component">
+        XXXXX
+      </div>
     </Container>
   </div>
 
@@ -440,6 +622,8 @@
 import Components from "~/components/index.ts";
 
 export default {
+  layout: "playground",
+
   components: {
     ...Components,
   },
@@ -451,8 +635,6 @@ export default {
 
   .playground {
     /* Parent style   ------------------------------ */
-    padding: 30px 0;
-
     /* Children style ------------------------------ */
     .playground-section {
       &.is-heading {

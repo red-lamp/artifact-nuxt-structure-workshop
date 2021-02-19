@@ -1,7 +1,7 @@
 <template>
   <div
     :class="[
-      'input-custom-container', {
+      'textarea-custom-container', {
       'is-fluid': isFluid,
       'is-error': isError,
       'is-disabled': isDisabled,
@@ -11,29 +11,31 @@
       inlineStyles,
     ]"
   >
-    <div v-if="label" class="input-custom-section is-label">
-      <span class="input-custom-text is-label">{{ label }}</span>
-      <span v-if="isMandatory" class="input-custom-text is-mandatory">*</span>
+    <div v-if="label" class="textarea-custom-section is-label">
+      <span class="textarea-custom-text is-label">{{ label }}</span>
+      <span v-if="isMandatory" class="textarea-custom-text is-mandatory">*</span>
     </div>
-    <input
-      class="input-custom"
-      :style="[{ width: width + 'px' }]"
-      :type="type"
+    <textarea
+      class="textarea-custom"
+      :style="[{
+        width: width + 'px',
+        height: height + 'px',
+      }]"
       :placeholder="placeholder"
       :name="name"
       :value="value"
       :maxlength="maxLength"
-      @input="$emit('input',onChangeInput($event))"
+      @input="$emit('input',onChangeTextarea($event))"
     />
-    <div v-if="message" class="input-custom-section is-message">
-      <span class="input-custom-text is-message">{{ message }}</span>
+    <div v-if="message" class="textarea-custom-section is-message">
+      <span class="textarea-custom-text is-message">{{ message }}</span>
     </div>
   </div>
 </template>
 
 <script>
 export default {
-  name: "Input",
+  name: "Textarea",
 
   // Props types: String, Number, Boolean, Array, Object, Function, Promise
   props: {
@@ -60,14 +62,13 @@ export default {
     isMandatory: {
       type: Boolean,
     },
-    type: {
-      type: String,
-      default: "text",
-    },
     placeholder: {
       type: String,
     },
     width: {
+      type: Number,
+    },
+    height: {
       type: Number,
     },
     name: {
@@ -79,7 +80,7 @@ export default {
     },
     maxLength: {
       type: Number,
-      default: 255,
+      default: 1000,
     },
     label: {
       type: String,
@@ -87,7 +88,7 @@ export default {
     message: {
       type: String,
     },
-    onChangeInput: {
+    onChangeTextarea: {
       type: Function,
       default(ev) {
         return ev.target.value;
@@ -100,17 +101,18 @@ export default {
 <style lang="scss">
 @import "~assets/styleguides/styleguides";
 
-.input-custom-container {
+.textarea-custom-container {
   /* Parent style   ------------------------------ */
   position: relative;
   display: inline-block;
 
   /* Children style ------------------------------ */
-  .input-custom {
+  .textarea-custom {
     @include typography-primary-14;
+    resize: none;
     display: block;
     width: 100%;
-    padding: 0 15px;
+    padding: 5px 15px;
     height: $input-height;
     background-color: $color-white;
     border: 1px solid $color-black;
@@ -152,7 +154,7 @@ export default {
     }
   }
 
-  .input-custom-section {
+  .textarea-custom-section {
     &.is-label {
       margin: 0 0 5px;
     }
@@ -162,7 +164,7 @@ export default {
     }
   }
 
-  .input-custom-text {
+  .textarea-custom-text {
     &.is-label {
       @include typography-primary-14;
       color: $color-black;
@@ -188,11 +190,11 @@ export default {
 
   /* State */
   &.is-error {
-    .input-custom {
+    .textarea-custom {
       border-color: $color-error;
     }
 
-    .input-custom-text {
+    .textarea-custom-text {
       &.is-message {
         color: $color-red-1;
       }
@@ -200,7 +202,7 @@ export default {
   }
 
   &.is-disabled {
-    .input-custom {
+    .textarea-custom {
       pointer-events: none;
       background-color: $color-disabled;
     }
