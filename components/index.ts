@@ -4,6 +4,7 @@ import Container from './Container';
 import Grid from './Grid';
 import Input from './Input';
 import Layout from './Layout';
+import NavigationBar from './NavigationBar';
 
 export default {
   ComponentSample: ComponentSample.ComponentSample,
@@ -13,4 +14,5 @@ export default {
   GridCol: Grid.GridCol,
   Input: Input.Input,
   Layout: Layout.Layout,
+  NavigationBar: NavigationBar.NavigationBar,
 }

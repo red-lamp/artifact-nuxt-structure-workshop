@@ -13,8 +13,14 @@
 </template>
 
 <script>
+  // import COMPONENT from "./../COMPONENT/index.js";
+
   export default {
     name: 'ComponentStarter',
+
+    // components: {
+    //   COMPONENT: COMPONENT.COMPONENT,
+    // },
 
     // Props types: String, Number, Boolean, Array, Object, Function, Promise
     props: {

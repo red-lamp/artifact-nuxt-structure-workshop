@@ -1,7 +1,7 @@
 <template>
   <div class="home">
     <Container>
-      ...
+      <NavigationBar />
     </Container>
   </div>
 
@@ -22,8 +22,6 @@ export default {
 
   .home {
     /* Parent style   ------------------------------ */
-    padding: 30px 0;
-
     /* Children style ------------------------------ */
     /* Other component style ----------------------- */
   }
