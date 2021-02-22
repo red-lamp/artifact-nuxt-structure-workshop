@@ -146,22 +146,26 @@
                       <Input
                         isMandatory
                         isFluid
+                        :isError="contact.isFirstnameError"
+                        :message="
+                          contact.isFirstnameError ? messageError : undefined
+                        "
                         :label="'First name'"
                         :placeholder="'Enter your first name'"
-                        :name="''"
-                        :value="''"
-                        :onChangeInput="function () {}"
+                        v-model="contact.firstname"
                       />
                     </GridCol>
                     <GridCol isCol6>
                       <Input
                         isMandatory
                         isFluid
+                        :isError="contact.isLastnameError"
+                        :message="
+                          contact.isLastnameError ? messageError : undefined
+                        "
                         :label="'Last name'"
                         :placeholder="'Enter your last name'"
-                        :name="''"
-                        :value="''"
-                        :onChangeInput="function () {}"
+                        v-model="contact.lastname"
                       />
                     </GridCol>
                   </Grid>
@@ -170,22 +174,22 @@
                   <Input
                     isMandatory
                     isFluid
+                    :isError="contact.isEmailError"
+                    :message="contact.isEmailError ? messageError : undefined"
                     :label="'Email address'"
                     :placeholder="'Enter your email address eg john@mail.com'"
-                    :name="''"
-                    :value="''"
-                    :onChangeInput="function () {}"
+                    v-model="contact.email"
                   />
                 </div>
                 <div class="home-list">
                   <Input
                     isMandatory
                     isFluid
+                    :isError="contact.isTitleError"
+                    :message="contact.isTitleError ? messageError : undefined"
                     :label="'Title'"
                     :placeholder="'Enter your contact title'"
-                    :name="''"
-                    :value="''"
-                    :onChangeInput="function () {}"
+                    v-model="contact.title"
                   />
                 </div>
                 <div class="home-list">
@@ -194,9 +198,7 @@
                     :label="'Description'"
                     :placeholder="'Enter your contact description'"
                     :height="108"
-                    :name="''"
-                    :value="''"
-                    :onChangeTextarea="function () {}"
+                    v-model="contact.description"
                   />
                 </div>
               </div>
@@ -204,7 +206,7 @@
           </Grid>
         </div>
         <div class="home-section is-button-send">
-          <Button isColorPrimary :width="125" :onClick="function () {}">
+          <Button isColorPrimary :width="125" :onClick="onClickSubmitContact">
             Send
           </Button>
         </div>
@@ -244,6 +246,19 @@ export default {
           isEdit: false,
         },
       ],
+
+      contact: {
+        firstname: '',
+        isFirstnameError: false,
+        lastname: '',
+        isLastnameError: false,
+        email: '',
+        isEmailError: false,
+        title: '',
+        isTitleError: false,
+        description: '',
+      },
+      messageError: 'Please enter mandatory information.',
     };
   },
 
@@ -288,6 +303,13 @@ export default {
     //===========
     //=========== contact
     //===========
+    onClickSubmitContact() {
+      console.log('onClickSubmitContact', this.contact);
+      this.contact.isFirstnameError = this.contact.firstname.length === 0;
+      this.contact.isLastnameError = this.contact.lastname.length === 0;
+      this.contact.isEmailError = this.contact.email.length === 0;
+      this.contact.isTitleError = this.contact.title.length === 0;
+    },
   },
 };
 </script>
