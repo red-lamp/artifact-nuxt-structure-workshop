@@ -18,10 +18,7 @@
                   <span class="home-text is-heading">Our Services</span>
                 </GridCol>
                 <GridCol>
-                  <Button
-                    isColorPrimary
-                    :onClick="function () {}"
-                  >
+                  <Button isColorPrimary :onClick="onClickAddService">
                     Add Service
                   </Button>
                 </GridCol>
@@ -31,35 +28,71 @@
               <Table class="is-our-services">
                 <thead>
                   <tr>
-                    <th class="is-service-name"><span class="table-custom-text is-th">Service Name</span></th>
-                    <th class="is-description"><span class="table-custom-text is-th">Description</span></th>
-                    <th class="is-actions"><span class="table-custom-text is-th">Actions</span></th>
+                    <th class="is-service-name">
+                      <span class="table-custom-text is-th">Service Name</span>
+                    </th>
+                    <th class="is-description">
+                      <span class="table-custom-text is-th">Description</span>
+                    </th>
+                    <th class="is-actions">
+                      <span class="table-custom-text is-th">Actions</span>
+                    </th>
                   </tr>
                 </thead>
                 <tbody>
-                  <tr>
+                  <tr v-for="(e, i) in serviceList" :key="i">
                     <td class="is-service-name">
-                      <span v-if="true" class="table-custom-text is-td">Claims Management</span>
-                      <Input v-else
+                      <Input
+                        v-if="e.isEdit"
                         isFluid
                         :placeholder="'Enter service name'"
-                        :name="''"
-                        :value="''"
-                        :onChangeInput="function () {}"
+                        :name="'editName'"
+                        :value="e.editName"
+                        :onChangeInput="onChangeInputService.bind(this, i)"
                       />
+                      <span v-else class="table-custom-text is-td">{{
+                        e.name
+                      }}</span>
                     </td>
                     <td class="is-description">
-                      <span v-if="true" class="table-custom-text is-td">To the fullest extent permissible pursuant to applicable law.</span>
-                      <Input v-else
+                      <Input
+                        v-if="e.isEdit"
                         isFluid
-                        :placeholder="'Enter service name'"
-                        :name="''"
-                        :value="''"
-                        :onChangeInput="function () {}"
+                        :placeholder="'Enter description'"
+                        :name="'editDescription'"
+                        :value="e.editDescription"
+                        :onChangeInput="onChangeInputService.bind(this, i)"
                       />
+                      <span v-else class="table-custom-text is-td">
+                        {{ e.description }}
+                      </span>
                     </td>
                     <td class="is-actions">
-                      <Grid v-if="true" isGutter10>
+                      <Grid v-if="e.isEdit" isGutter10>
+                        <GridCol>
+                          <Button
+                            isColorPrimary
+                            isSmall
+                            isNoPadding
+                            :width="75"
+                            :onClick="onClickSaveEditService.bind(this, i)"
+                          >
+                            Save
+                          </Button>
+                        </GridCol>
+                        <GridCol>
+                          <Button
+                            isColorGray
+                            isSmall
+                            isNoPadding
+                            :width="75"
+                            :onClick="onClickCancelEditService.bind(this, i)"
+                          >
+                            Cancel
+                          </Button>
+                        </GridCol>
+                      </Grid>
+                      <Grid v-else isGutter10>
                         <GridCol>
                           <Button
                             isColorPrimary
@@ -70,7 +103,7 @@
                             :iconFrontSrc="'/images/icons/ic-edit-white.svg'"
                             :iconFrontWidth="10"
                             :iconFrontHeight="10"
-                            :onClick="function () {}"
+                            :onClick="onClickEditService.bind(this, i)"
                           >
                             Edit
                           </Button>
@@ -85,193 +118,9 @@
                             :iconFrontSrc="'/images/icons/ic-delete-trash-white.svg'"
                             :iconFrontWidth="10"
                             :iconFrontHeight="12"
-                            :onClick="function () {}"
+                            :onClick="onClickDeleteService.bind(this, i)"
                           >
                             Delete
-                          </Button>
-                        </GridCol>
-                      </Grid>
-                      <Grid v-else isGutter10>
-                        <GridCol>
-                          <Button
-                            isColorPrimary
-                            isSmall
-                            isNoPadding
-                            :width="75"
-                            :onClick="function () {}"
-                          >
-                            Save
-                          </Button>
-                        </GridCol>
-                        <GridCol>
-                          <Button
-                            isColorGray
-                            isSmall
-                            isNoPadding
-                            :width="75"
-                            :onClick="function () {}"
-                          >
-                            Cancel
-                          </Button>
-                        </GridCol>
-                      </Grid>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td class="is-service-name">
-                      <span v-if="false" class="table-custom-text is-td">Medical Welfare Benefits for Employees</span>
-                      <Input v-else
-                        isFluid
-                        :placeholder="'Enter service name'"
-                        :name="''"
-                        :value="'Medical Welfare Benefits for Employees'"
-                        :onChangeInput="function () {}"
-                      />
-                    </td>
-                    <td class="is-description">
-                      <span v-if="false" class="table-custom-text is-td">Refer to the actual policy or the relevant product or services.</span>
-                      <Input v-else
-                        isFluid
-                        :placeholder="'Enter service name'"
-                        :name="''"
-                        :value="'Refer to the actual policy or the relevant product or services.'"
-                        :onChangeInput="function () {}"
-                      />
-                    </td>
-                    <td class="is-actions">
-                      <Grid v-if="false" isGutter10>
-                        <GridCol>
-                          <Button
-                            isColorPrimary
-                            isSmall
-                            isNoPadding
-                            isShowIconFront
-                            :width="75"
-                            :iconFrontSrc="'/images/icons/ic-edit-white.svg'"
-                            :iconFrontWidth="10"
-                            :iconFrontHeight="10"
-                            :onClick="function () {}"
-                          >
-                            Edit
-                          </Button>
-                        </GridCol>
-                        <GridCol>
-                          <Button
-                            isColorSecondary
-                            isSmall
-                            isNoPadding
-                            isShowIconFront
-                            :width="75"
-                            :iconFrontSrc="'/images/icons/ic-delete-trash-white.svg'"
-                            :iconFrontWidth="10"
-                            :iconFrontHeight="12"
-                            :onClick="function () {}"
-                          >
-                            Delete
-                          </Button>
-                        </GridCol>
-                      </Grid>
-                      <Grid v-else isGutter10>
-                        <GridCol>
-                          <Button
-                            isColorPrimary
-                            isSmall
-                            isNoPadding
-                            :width="75"
-                            :onClick="function () {}"
-                          >
-                            Save
-                          </Button>
-                        </GridCol>
-                        <GridCol>
-                          <Button
-                            isColorGray
-                            isSmall
-                            isNoPadding
-                            :width="75"
-                            :onClick="function () {}"
-                          >
-                            Cancel
-                          </Button>
-                        </GridCol>
-                      </Grid>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td class="is-service-name">
-                      <span v-if="true" class="table-custom-text is-td">Information System</span>
-                      <Input v-else
-                        isFluid
-                        :placeholder="'Enter service name'"
-                        :name="''"
-                        :value="''"
-                        :onChangeInput="function () {}"
-                      />
-                    </td>
-                    <td class="is-description">
-                      <span v-if="true" class="table-custom-text is-td">Actual policy or the relevant product or services agreement.</span>
-                      <Input v-else
-                        isFluid
-                        :placeholder="'Enter service name'"
-                        :name="''"
-                        :value="''"
-                        :onChangeInput="function () {}"
-                      />
-                    </td>
-                    <td class="is-actions">
-                      <Grid v-if="true" isGutter10>
-                        <GridCol>
-                          <Button
-                            isColorPrimary
-                            isSmall
-                            isNoPadding
-                            isShowIconFront
-                            :width="75"
-                            :iconFrontSrc="'/images/icons/ic-edit-white.svg'"
-                            :iconFrontWidth="10"
-                            :iconFrontHeight="10"
-                            :onClick="function () {}"
-                          >
-                            Edit
-                          </Button>
-                        </GridCol>
-                        <GridCol>
-                          <Button
-                            isColorSecondary
-                            isSmall
-                            isNoPadding
-                            isShowIconFront
-                            :width="75"
-                            :iconFrontSrc="'/images/icons/ic-delete-trash-white.svg'"
-                            :iconFrontWidth="10"
-                            :iconFrontHeight="12"
-                            :onClick="function () {}"
-                          >
-                            Delete
-                          </Button>
-                        </GridCol>
-                      </Grid>
-                      <Grid v-else isGutter10>
-                        <GridCol>
-                          <Button
-                            isColorPrimary
-                            isSmall
-                            isNoPadding
-                            :width="75"
-                            :onClick="function () {}"
-                          >
-                            Save
-                          </Button>
-                        </GridCol>
-                        <GridCol>
-                          <Button
-                            isColorGray
-                            isSmall
-                            isNoPadding
-                            :width="75"
-                            :onClick="function () {}"
-                          >
-                            Cancel
                           </Button>
                         </GridCol>
                       </Grid>
@@ -355,11 +204,7 @@
           </Grid>
         </div>
         <div class="home-section is-button-send">
-          <Button
-            isColorPrimary
-            :width="125"
-            :onClick="function () {}"
-          >
+          <Button isColorPrimary :width="125" :onClick="function () {}">
             Send
           </Button>
         </div>
@@ -367,80 +212,147 @@
     </Container>
     <Footer />
   </div>
-
 </template>
 
 <script>
-import Components from "~/components/index.ts";
+import Components from '~/components/index.ts';
 
 export default {
   components: {
     ...Components,
   },
-}
+
+  data() {
+    return {
+      serviceList: [
+        {
+          name: 'Claims Management',
+          description:
+            'To the fullest extent permissible pursuant to applicable law.',
+          isEdit: false,
+        },
+        {
+          name: 'Medical Welfare Benefits for Employees',
+          description:
+            'Refer to the actual policy or the relevant product or services.',
+          isEdit: false,
+        },
+        {
+          name: 'Information System',
+          description:
+            'Actual policy or the relevant product or services agreement.',
+          isEdit: false,
+        },
+      ],
+    };
+  },
+
+  methods: {
+    //===========
+    //=========== service
+    //===========
+    onClickAddService() {
+      this.serviceList.push({
+        name: '',
+        editName: '',
+        description: '',
+        editDescription: '',
+        isEdit: false,
+      });
+    },
+    onClickEditService(index) {
+      const data = this.serviceList[index];
+      data.editName = data.name;
+      data.editDescription = data.description;
+      data.isEdit = true;
+      this.serviceList[index] = data;
+    },
+    onClickDeleteService(index) {
+      this.serviceList.splice(index, 1);
+    },
+    onClickSaveEditService(index) {
+      const data = this.serviceList[index];
+      data.name = data.editName;
+      data.description = data.editDescription;
+      data.isEdit = false;
+      this.serviceList[index] = data;
+    },
+    onClickCancelEditService(index) {
+      this.serviceList[index].isEdit = false;
+    },
+    onChangeInputService(index, ev) {
+      const name = ev.target.name;
+      const value = ev.target.value;
+      this.serviceList[index][name] = value;
+    },
+    //===========
+    //=========== contact
+    //===========
+  },
+};
 </script>
 
 <style lang="scss">
-  @import "~assets/styleguides/styleguides";
+@import '~assets/styleguides/styleguides';
 
-  .home {
-    /* Parent style   ------------------------------ */
-    .test {
-      height: 40px;
-      background-color: red;
+.home {
+  /* Parent style   ------------------------------ */
+  .test {
+    height: 40px;
+    background-color: red;
+  }
+
+  /* Children style ------------------------------ */
+  .home-section {
+    &.is-hero-banner {
+      margin: 0 0 45px;
     }
 
-    /* Children style ------------------------------ */
-    .home-section {
-      &.is-hero-banner {
-        margin: 0 0 45px;
-      }
-
-      &.is-our-services {
-        margin: 0 0 35px;
-      }
-
-      &.is-contact {
-        margin: 0 0 90px;
-      }
-
-      &.is-heading {
-        margin: 0 0 30px;
-        text-align: center;
-      }
-
-      &.is-heading-our-services {
-        margin: 0 0 27px;
-      }
-
-      &.is-form-contact {
-        margin: 0 0 30px;
-      }
-
-      &.is-button-send {
-        text-align: center;
-      }
+    &.is-our-services {
+      margin: 0 0 35px;
     }
 
-    .home-text {
-      &.is-heading {
-        @include typography-primary-bold-24;
-        color: $color-primary-1;
-      }
+    &.is-contact {
+      margin: 0 0 90px;
     }
 
-    .home-lists {
-      &.is-form-contact {
-        .home-list {
-            margin: 0 0 25px;
+    &.is-heading {
+      margin: 0 0 30px;
+      text-align: center;
+    }
 
-          &:last-child {
-            margin: 0;
-          }
+    &.is-heading-our-services {
+      margin: 0 0 27px;
+    }
+
+    &.is-form-contact {
+      margin: 0 0 30px;
+    }
+
+    &.is-button-send {
+      text-align: center;
+    }
+  }
+
+  .home-text {
+    &.is-heading {
+      @include typography-primary-bold-24;
+      color: $color-primary-1;
+    }
+  }
+
+  .home-lists {
+    &.is-form-contact {
+      .home-list {
+        margin: 0 0 25px;
+
+        &:last-child {
+          margin: 0;
         }
       }
     }
-
-    /* Other component style ----------------------- */
   }
+
+  /* Other component style ----------------------- */
+}
 </style>
