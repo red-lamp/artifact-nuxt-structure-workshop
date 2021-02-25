@@ -18,7 +18,10 @@
           :isShowDescription="true"
           :title="'Component Sample'"
           :description="'This is sample for learning component usage workshop.'"
-        />
+        >
+          <template slot="additional-top">Additional Top</template>
+          <template slot="additional-bottom">Additional Bottom</template>
+        </ComponentSample>
       </div>
 
       <!-- Button

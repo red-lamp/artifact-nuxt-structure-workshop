@@ -10,6 +10,7 @@
       inlineStyles,
     ]"
   >
+    <slot name="additional-top" />
     <div
       v-if="isShowTitle"
       class="component-sample-title"
@@ -22,6 +23,7 @@
     >
       {{ description }}
     </div>
+    <slot name="additional-bottom" />
   </div>
 </template>
 
